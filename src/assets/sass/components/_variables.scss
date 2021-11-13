@@ -1,0 +1,90 @@
+@keyframes openMenu{
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes openMenuHeader{
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0%);
+		opacity: 1;
+	}
+}
+
+@keyframes openMenuBottom{
+	0% {
+		transform: translateY(100px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes openMenuLinks{
+	0% {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes closeMenu{
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes closeMenuHeader{
+	0% {
+		transform: translateY(0%);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+}
+
+@keyframes closeMenuBottom{
+	0% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(100px);
+		opacity: 0;
+	}
+}
+
+@keyframes closeMenuLinks{
+	0% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+}
+
+@keyframes preloader{
+	to {
+		stroke-dashoffset: 0;
+		fill: #5ec7eb;
+	}
+}

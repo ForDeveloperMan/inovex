@@ -1,0 +1,163 @@
+html{
+	position: relative;
+	max-width: 100vw;
+	overflow: hidden;
+}
+
+a{
+	font-family: 'Lato', sans-serif;
+}
+
+body{
+	font-family: 'Lato', sans-serif;
+	position: relative;
+	font-weight: 400;
+	overflow: hidden;
+	max-width: 100vw;
+	background: #000000;
+}
+
+.loader{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	z-index: 999;
+	display: none;
+	&__el{
+		width: 100%;
+		background-color: #fff;
+		border-right: 1px solid #eeeeee;
+		&:last-child{
+			border-right: 0;
+		}
+	}
+	&__preload{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		z-index: 10;
+		width: 150px;
+		height: 133px;
+		path{
+			fill: transparent;
+			stroke-dasharray: 150;
+			stroke-dashoffset: 150;
+			animation: 1s linear preloader infinite alternate;
+		}
+	}
+}
+
+.sec-home{
+	.block-header__logo{
+		display: none;
+	}
+	.block-header.open{
+		.block-header__logo{
+			display: block;
+		}
+	}
+	&__wrap{
+		position: relative;
+		z-index: 10;
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&__logo{
+		width: 379px;
+		height: 115px;
+		object-fit: contain;
+		user-select: none;
+	}
+	&__bg{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 5;
+		canvas{
+			width: 100% !important;
+			height: 100% !important;
+		}
+	}
+}
+
+.sec-page{
+	&__wrap{
+		position: relative;
+		z-index: 10;
+		width: 100vw;
+		height: 100vh;
+	}
+}
+
+.sec-services{
+	&__title{
+		margin-bottom: 37px;
+	}
+	&__wrap{
+		padding: 223px 0;
+	}
+	&__top{
+		text-align: center;
+		max-width: 560px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	&__content{
+		margin-top: 95px;
+		max-width: 1059px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.block-header{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 50px 50px;
+	z-index: 100;
+	&__content{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__logo{
+		display: block;
+		width: 183px;
+		height: 34px;
+		object-fit: contain;
+	}
+	&__menu{
+		position: fixed;
+		top: 133px;
+		left: 0;
+		width: 100%;
+		background-color: #000;
+		height: calc(100vh - 134px);
+		z-index: 100;
+		visibility: hidden;
+		transition: visibility 1s;
+	}
+	&.open{
+		opacity: 0;
+		animation: 1s openMenuHeader;
+		animation-fill-mode: forwards;
+		animation-delay: 600ms;
+	}
+	&.close{
+		animation: 1s closeMenuHeader;
+		.btn-burger .btn-burger__el{
+			transform: translateY(-50%) rotate(0deg);
+		}
+	}
+}
