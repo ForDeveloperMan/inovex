@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from "vue-router";
 import Home from '@/views/Home.vue'
 import Services from '@/views/Services.vue'
+import Service from '@/views/Service.vue'
 
 let languages = ['ua', 'en', 'ru'];
 let language_def = 'en';
@@ -18,6 +19,16 @@ let components = {
 		name: 'services',
 		path: ['poslugi', 'services', 'uslugi'],
 		component: Services,
+	},
+	service: {
+		name: 'service',
+		path: ['poslugi/:service', 'services/:service', 'uslugi/:service'],
+		component: Service,
+	},
+	serviceMedia: {
+		name: 'serviceMedia',
+		path: ['poslugi/meida/:media', 'services/meida/:media', 'uslugi/meida/:media'],
+		component: Service,
 	},
 };
 
@@ -87,6 +98,17 @@ routes.push({
 const router = createRouter({
     routes,
     history: createWebHistory(process.env.BASE_URL)
+})
+
+router.beforeEach((to, from, next) => {
+	if ( from.name !== undefined ){
+		to.meta.preload = true;
+		next();
+	}else{
+		to.meta.preload = false;
+		next();
+	}
+	return false;
 })
 
 export default router;

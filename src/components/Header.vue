@@ -16,17 +16,18 @@
 	<div class="block-header__menu menu-dropdown" v-bind:class="[{open: openMenu},{close: closeMenu}]">
 		<div class="menu-dropdown__content">
 			<ul class="menu-dropdown__links links-menu">
-				<li class="links-menu__el"><router-link :to="{name: 'services'+'-'+this.$route.meta.language}" class="links-menu__link">Services</router-link></li>
-				<li class="links-menu__el"><a href="#" class="links-menu__link">Clients</a></li>
-				<li class="links-menu__el"><a href="#" class="links-menu__link">About us</a></li>
-				<li class="links-menu__el"><a href="#" class="links-menu__link">Contact</a></li>
+				<li class="links-menu__el"><router-link @click="click" :to="{name: 'services'+'-'+this.$route.meta.language}" class="links-menu__link">Services</router-link></li>
 			</ul>
 			<div class="menu-dropdown__bottom">
 				<div class="menu-dropdown__bottom-left">
 					<div class="block-languages">
-						<a href="#" class="block-languages__el">UA</a>
-						<a href="#" class="block-languages__el active">EN</a>
-						<a href="#" class="block-languages__el">RU</a>
+						<router-link
+							v-for="language in languages" 
+							:to="languages_links[language['lang']]" 
+							:key="language" 
+							class="block-languages__el" v-bind:class="{active: language['active']}">
+							{{ language['lang'] }}
+						</router-link>
 					</div>
 				</div>
 				<div class="menu-dropdown__bottom-right">
@@ -51,14 +52,61 @@ export default {
 			info: Object,
 			openMenu: false,
 			closeMenu: false,
+			language: this.$route.meta.language,
+			languages_links: Array,
+			languages: Array,
 		};
+	},
+	watch: {
+		'$store.state.translateSlugs': function() {
+			if ( this.$store.state.translateSlugs ) {
+				this.getLanguages();
+			}
+		}
 	},
 	created(){
 		this.getInfo();
 	},
 	mounted() {
+		this.getLanguages();
 	},
 	methods: {
+		getClass(e) {
+			console.log(e);
+		},
+		getLanguages() {
+			let languages_arr = [];
+			for(var i=0; i<this.$route.meta.languages.length; i++){
+				if ( this.$route.meta.languages[i] === this.language ) {
+					languages_arr.push({
+						'lang': this.$route.meta.languages[i],
+						'active': true,
+					});
+				}else{
+					languages_arr.push({
+						'lang': this.$route.meta.languages[i],
+						'active': false,
+					});
+				}
+			}
+			this.languages = languages_arr;
+
+			// if posts
+			if ( this.$store.state.translateSlugs ) {
+				console.log(this.$route);
+				let languages_page = {};
+				for( const [key, val] of Object.entries(this.$store.state.translateSlugs) ) {
+					let url_page = this.$route.meta.translate_links[key].split(':')[0] + val;
+					languages_page[key] = url_page;
+				}
+				this.languages_links = languages_page;
+			}else{
+				this.languages_links = this.$route.meta.translate_links;
+			}
+		},
+		click() {
+			this.openMenuFunc();
+		},
 		openMenuFunc() {
 			if ( !this.openMenu ) {
 				this.openMenu = true;
