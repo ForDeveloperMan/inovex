@@ -150,7 +150,7 @@ $heightHeader: 134px;
 		position: relative;
 		z-index: 10;
 		width: 100vw;
-		height: 100vh;
+		height: calc(100vh - #{$heightHeader});
 	}
 	&__back{
 		color: #c4c4c4;
@@ -204,7 +204,7 @@ $heightHeader: 134px;
 	left: 0;
 	width: 100%;
 	padding: 50px 50px;
-	z-index: 200;
+	z-index: 202;
 	&__content{
 		display: flex;
 		align-items: center;
@@ -218,16 +218,18 @@ $heightHeader: 134px;
 	}
 	&__menu{
 		position: fixed;
-		top: 133px;
+		top: 0;
+		padding-top: $heightHeader;
 		left: 0;
 		width: 100%;
 		background-color: #000;
-		height: calc(100vh - 134px);
+		height: calc(100vh);
 		z-index: 200;
 		visibility: hidden;
 		transition: visibility 1s;
 	}
 	&.open{
+		position: fixed;
 		opacity: 0;
 		animation: 1s openMenuHeader;
 		animation-fill-mode: forwards;
@@ -266,5 +268,135 @@ $heightHeader: 134px;
 	}
 	&__btn{
 		margin-top: 65px;
+	}
+}
+
+.overflow-y{
+	height: 100vh;
+	overflow-y: auto;
+}
+
+.sec-clients{
+	position: relative;
+	overflow-x: hidden;
+	@include paddingTop;
+	&__wrap{
+		padding: 60px 20px;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1551px;
+	}
+	&__title{
+		padding-bottom: 46px;
+	}
+	&__content{
+		margin-top: 85px;
+	}
+	&__btn{
+		margin-top: 87px;
+	}
+}
+
+.sec-about{
+	position: relative;
+	overflow: hidden;
+	@include paddingTop;
+	&__wrap{
+		padding: 96px 20px;
+		padding-top: 20px;
+		padding-bottom: 89px;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1153px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	&__title{
+		margin-bottom: 66px;
+	}
+	&__text{
+		letter-spacing: -0.24px;
+		p{
+			margin-bottom: 32px;
+		}
+		*{
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+	&__content{
+		display: flex;
+		justify-content: space-between;
+	}
+	&__left{
+		max-width: 675px;
+	}
+	&__right{
+		margin-top: 52px;
+		max-width: 334px;
+	}
+	&__btn{
+		margin-top: 78px;
+	}
+}
+
+.sec-whoweare{
+	position: relative;
+	overflow: hidden;
+	@include paddingTop;
+	&__wrap{
+		padding: 96px 20px;
+		padding-top: 20px;
+		padding-bottom: 123px;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1290px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	&__title{
+		margin-bottom: 40px;
+	}
+	&__text{
+		letter-spacing: -0.4px;
+	}
+	&__content{
+		margin-top: 52px;
+	}
+}
+
+.sec-human{
+	position: relative;
+	overflow: hidden;
+	@include paddingTop;
+	&__wrap{
+		padding: 0 20px;
+		padding-top: 20px;
+		padding-bottom: 159px;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1227px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	&__title{
+		margin-bottom: 9px;
+	}
+	&__who{
+		color: #5ec7eb;
+		font-size: 16px;
+		font-weight: 300;
+		text-transform: uppercase;
+	}
+	&__content{
+		margin-top: 47px;
+	}
+	&__btn{
+	    margin-top: 50px;
+    	margin-left: 162px;
 	}
 }

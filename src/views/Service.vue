@@ -21,7 +21,7 @@
 			</transition>
 		</div>
 	</div>
-	<router-link @click="click" :to="{name: 'services'+'-'+this.$route.meta.language}" class="sec-page__back">back</router-link>
+	<router-link :to="{name: 'services'+'-'+this.$route.meta.language}" class="sec-page__back">back</router-link>
 </div>
 </template>
 <script>

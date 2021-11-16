@@ -2,6 +2,10 @@ import {createRouter, createWebHistory} from "vue-router";
 import Home from '@/views/Home.vue'
 import Services from '@/views/Services.vue'
 import Service from '@/views/Service.vue'
+import Clients from '@/views/Clients.vue'
+import About from '@/views/About.vue'
+import WhoWeAre from '@/views/WhoWeAre.vue'
+import Human from '@/views/Human.vue'
 
 let languages = ['ua', 'en', 'ru'];
 let language_def = 'en';
@@ -29,6 +33,26 @@ let components = {
 		name: 'serviceMedia',
 		path: ['poslugi/meida/:media', 'services/meida/:media', 'uslugi/meida/:media'],
 		component: Service,
+	},
+	clients: {
+		name: 'clients',
+		path: ['clients', 'clients', 'clients'],
+		component: Clients,
+	},
+	about: {
+		name: 'about',
+		path: ['pro-nas', 'about-us', 'pro-nas'],
+		component: About,
+	},
+	whoWeAre: {
+		name: 'WhoWeAre',
+		path: ['pro-nas/hto-mi', 'about-us/who-we-are', 'pro-nas/kto-mi'],
+		component: WhoWeAre,
+	},
+	human: {
+		name: 'Human',
+		path: ['pro-nas/hto-mi/:human', 'about-us/who-we-are/:human', 'pro-nas/kto-mi/:human'],
+		component: Human,
 	},
 };
 

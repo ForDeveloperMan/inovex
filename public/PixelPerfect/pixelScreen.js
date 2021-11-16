@@ -4,7 +4,7 @@
 
 ;$(function(){
 
-    var pxs_url = '../PixelPerfect/pixel.png';
+    var pxs_url = '../../PixelPerfect/pixel.png';
     var pxs_height = '1080px';
     var pxs_opacity_control = true;
 
