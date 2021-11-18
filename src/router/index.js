@@ -6,6 +6,7 @@ import Clients from '@/views/Clients.vue'
 import About from '@/views/About.vue'
 import WhoWeAre from '@/views/WhoWeAre.vue'
 import Human from '@/views/Human.vue'
+import Contacts from '@/views/Contacts.vue'
 
 let languages = ['ua', 'en', 'ru'];
 let language_def = 'en';
@@ -53,6 +54,11 @@ let components = {
 		name: 'Human',
 		path: ['pro-nas/hto-mi/:human', 'about-us/who-we-are/:human', 'pro-nas/kto-mi/:human'],
 		component: Human,
+	},
+	contacts: {
+		name: 'Contacts',
+		path: ['contact-us', 'contact-us', 'contact-us'],
+		component: Contacts,
 	},
 };
 

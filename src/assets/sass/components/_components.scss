@@ -15,8 +15,11 @@
 		font-weight: 300;
 		text-transform: uppercase;
 	}
-	&_med{
-
+	&_big{
+		color: #5ec7eb;
+		font-size: 72px;
+		font-weight: 900;
+		line-height: 1.25;
 	}
 	&_dec{
 		padding-bottom: 19px;
@@ -514,5 +517,75 @@
 		*:last-child{
 			margin-bottom: 0;
 		}
+	}
+}
+
+.contact-el{
+	&__title{
+		color: #5ec7eb;
+		font-size: 18px;
+		font-weight: 500;
+		margin-bottom: 14px;
+	}
+	&__text{
+		color: #ffffff;
+		font-size: 24px;
+		font-weight: 300;
+		letter-spacing: -0.15px;
+	}
+}
+
+.block-contact{
+	&__el{
+		margin-bottom: 39px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+}
+
+.inp{
+	height: 58px;
+}
+
+.form-el{
+	background: none;
+	border: 0;
+	color: #ffffff;
+	font-weight: 400;
+	width: 100%;
+	border-bottom: 1px solid #838383;
+	transition: .2s;
+	&, &::placeholder{
+		font-family: 'Lato';
+		font-size: 18px;
+	}
+	&::placeholder{
+		color: #838383;
+		font-weight: 300;
+	}
+	&.focus{
+		border-color: #5ec7eb;
+	}
+	&.error{
+		border-color: #bd6d6d;
+	}
+}
+
+.block-form{
+	&__el{
+		margin-bottom: 16px;
+	}
+	&__btn{
+		font-family: "Lato";
+		color: #838383;
+		font-size: 18px;
+		font-weight: 500;
+		margin-left: auto;
+		text-align: right;
+		text-transform: uppercase;
+		margin-top: 25px;
+		cursor: pointer;
+		display: block;
 	}
 }

@@ -19,6 +19,7 @@
 				<li class="links-menu__el"><router-link @click="click" :to="{name: 'services'+'-'+this.$route.meta.language}" class="links-menu__link">Services</router-link></li>
 				<li class="links-menu__el"><router-link @click="click" :to="{name: 'clients'+'-'+this.$route.meta.language}" class="links-menu__link">Clients</router-link></li>
 				<li class="links-menu__el"><router-link @click="click" :to="{name: 'about'+'-'+this.$route.meta.language}" class="links-menu__link">About us</router-link></li>
+				<li class="links-menu__el"><router-link @click="click" :to="{name: 'Contacts'+'-'+this.$route.meta.language}" class="links-menu__link">Contact</router-link></li>
 			</ul>
 			<div class="menu-dropdown__bottom">
 				<div class="menu-dropdown__bottom-left">

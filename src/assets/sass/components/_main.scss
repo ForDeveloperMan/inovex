@@ -400,3 +400,38 @@ $heightHeader: 134px;
     	margin-left: 162px;
 	}
 }
+
+.sec-contacts{
+	position: relative;
+	overflow: hidden;
+	@include paddingTop;
+	&__wrap{
+		padding: 0 20px;
+		padding-top: 20px;
+		padding-bottom: 168px;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1083px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	&__title{
+		padding-bottom: 5px;
+		margin-bottom: 54px;
+	}
+	&__content{
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	&__left{
+		max-width: 500px;
+		width: 100%;
+		margin-top: 21px;
+	}
+	&__right{
+		max-width: 407px;
+		width: 100%;
+	}
+}
