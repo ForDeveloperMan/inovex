@@ -103,7 +103,7 @@ export default {
 			formData.append('inp-email', inp_mail);
 			formData.append('inp-message', inp_message);
 			
-			axios.post('http://inovex.com/wp-json/contact-form-7/v1/contact-forms/205/feedback', formData).then(response => {
+			axios.post('https://inovex.qazxswedc.site/wp-json/contact-form-7/v1/contact-forms/205/feedback', formData).then(response => {
 				if ( response.data.status === 'mail_sent' ) {
 					this.thanksForm = true;
 				}
@@ -116,18 +116,18 @@ export default {
 		inpCheck(e) {
 			let inp = e.target;
 			let val = inp.value;
-			console.log(val);
 			if ( val === '' || val === null || val === undefined || val === false ) {
 				inp.classList.remove('focus');
 			}else{
 				inp.classList.add('focus');
+				inp.classList.remove('error');
 			}
 		},
 		showPage() {
 			setTimeout(()=>this.showAnim = true, 1100);
 		},
 		getInfo() {
-			axios.get('http://inovex.com/wp-json/vue/v1/contacts', {
+			axios.get('https://inovex.qazxswedc.site/wp-json/vue/v1/contacts', {
 				params:{
 					lang: this.$route.meta.language,
 				}

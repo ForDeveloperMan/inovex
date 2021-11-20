@@ -23,6 +23,18 @@ $heightHeader: 134px;
 	padding-top: $heightHeader;
 }
 
+#sec-home-bg{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	pointer-events: none;
+	canvas{
+	}
+}
+
 
 .loader{
 	position: fixed;
@@ -137,6 +149,12 @@ $heightHeader: 134px;
 		width: 100%;
 		height: 100%;
 		z-index: 5;
+		&.hide{
+			display: none;
+			canvas{
+				display: none;
+			}
+		}
 		canvas{
 			// width: 100% !important;
 			// height: 100% !important;
@@ -146,11 +164,16 @@ $heightHeader: 134px;
 
 .sec-page{
 	position: relative;
+	overflow-y: auto;
+	height: 100vh;
+	&.notScroll{
+		overflow: hidden !important;
+	}
 	&__wrap{
 		position: relative;
 		z-index: 10;
 		width: 100vw;
-		height: calc(100vh - #{$heightHeader});
+		min-height: calc(100vh - #{$heightHeader});
 	}
 	&__back{
 		color: #c4c4c4;
@@ -178,11 +201,19 @@ $heightHeader: 134px;
 }
 
 .sec-services{
+	@include paddingTop;
+	overflow: hidden;
+	overflow-y: auto;
 	&__title{
 		margin-bottom: 37px;
 	}
 	&__wrap{
-		padding: 223px 0;
+		padding: 20px 0;
+		padding-bottom: 61px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 	&__top{
 		text-align: center;
@@ -218,12 +249,12 @@ $heightHeader: 134px;
 	}
 	&__menu{
 		position: fixed;
-		top: 0;
 		padding-top: $heightHeader;
+		top: 0;
 		left: 0;
-		width: 100%;
+		right: 0;
+		bottom: 0;
 		background-color: #000;
-		height: calc(100vh);
 		z-index: 200;
 		visibility: hidden;
 		transition: visibility 1s;
@@ -245,10 +276,12 @@ $heightHeader: 134px;
 
 .sec-service{
 	@include paddingTop;
+	overflow-y: auto;
+	height: 100vh;
 	&__wrap{
 		padding: 10px 24px;
 		padding-bottom: $heightHeader;
-		height: calc(100vh - #{$heightHeader});
+		min-height: calc(100vh - #{$heightHeader});
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -300,6 +333,8 @@ $heightHeader: 134px;
 .sec-about{
 	position: relative;
 	overflow: hidden;
+	overflow-y: auto;
+	height: 100vh;
 	@include paddingTop;
 	&__wrap{
 		padding: 96px 20px;
@@ -332,6 +367,7 @@ $heightHeader: 134px;
 	}
 	&__left{
 		max-width: 675px;
+		margin-right: 30px;
 	}
 	&__right{
 		margin-top: 52px;
@@ -345,6 +381,8 @@ $heightHeader: 134px;
 .sec-whoweare{
 	position: relative;
 	overflow: hidden;
+	overflow-y: auto;
+	height: 100vh;
 	@include paddingTop;
 	&__wrap{
 		padding: 96px 20px;
@@ -371,6 +409,8 @@ $heightHeader: 134px;
 .sec-human{
 	position: relative;
 	overflow: hidden;
+	overflow-y: auto;
+	height: 100vh;
 	@include paddingTop;
 	&__wrap{
 		padding: 0 20px;
@@ -404,6 +444,8 @@ $heightHeader: 134px;
 .sec-contacts{
 	position: relative;
 	overflow: hidden;
+	overflow-y: auto;
+	height: 100vh;
 	@include paddingTop;
 	&__wrap{
 		padding: 0 20px;

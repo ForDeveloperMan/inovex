@@ -17,7 +17,7 @@
 				</template>
 			</div>
 			<div class="center">
-				<a href="#" class="btn sec-clients__btn">CONTACT US</a>
+				<router-link @click="click" :to="{name: 'Contacts'+'-'+this.$route.meta.language}" class="btn sec-clients__btn">CONTACT US</router-link>
 			</div>
 		</div>
 	</div>
@@ -53,7 +53,7 @@ export default {
 			setTimeout(()=>this.showAnim = true, 1100);
 		},
 		getInfo() {
-			axios.get('http://inovex.com/wp-json/vue/v1/clients', {
+			axios.get('https://inovex.qazxswedc.site/wp-json/vue/v1/clients', {
 				params:{
 					lang: this.$route.meta.language,
 				}

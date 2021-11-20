@@ -16,12 +16,12 @@
 			</transition>
 			<transition name="bounceDown">
 				<div v-show="showAnim">
-					<a href="#" class="btn sec-service__btn">CONTACT US</a>
+					<router-link @click="click" :to="{name: 'Contacts'+'-'+this.$route.meta.language}" class="btn sec-service__btn">CONTACT US</router-link>
 				</div>
 			</transition>
 		</div>
-	</div>
 	<router-link :to="{name: 'services'+'-'+this.$route.meta.language}" class="sec-page__back">back</router-link>
+	</div>
 </div>
 </template>
 <script>
@@ -55,7 +55,7 @@ export default {
 			setTimeout(()=>this.showAnim = true, 1100);
 		},
 		getInfo() {
-			axios.get('http://inovex.com/wp-json/vue/v1/service', {
+			axios.get('https://inovex.qazxswedc.site/wp-json/vue/v1/service', {
 				params:{
 					lang: this.$route.meta.language,
 					service: this.$route.params.service,

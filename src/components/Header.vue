@@ -35,9 +35,7 @@
 				</div>
 				<div class="menu-dropdown__bottom-right">
 					<div class="block-socials">
-						<a href="#" target="_blank" class="block-socials__el">FACEBOOK</a>
-						<a href="#" target="_blank" class="block-socials__el">LINKEDIN</a>
-						<a href="#" target="_blank" class="block-socials__el">TELEGRAM</a>
+						<a v-for="(el, ind) in info.socials" v-bind:key="ind" :href="el.ssylka" target="_blank" class="block-socials__el">{{ el.tekst }}</a>
 					</div>
 				</div>
 			</div>
@@ -75,7 +73,6 @@ export default {
 	},
 	methods: {
 		getClass(e) {
-			console.log(e);
 		},
 		getLanguages() {
 			let languages_arr = [];
@@ -96,7 +93,6 @@ export default {
 
 			// if posts
 			if ( this.$store.state.translateSlugs ) {
-				console.log(this.$route);
 				let languages_page = {};
 				for( const [key, val] of Object.entries(this.$store.state.translateSlugs) ) {
 					let url_page = this.$route.meta.translate_links[key].split(':')[0] + val;
@@ -120,7 +116,7 @@ export default {
 			}
 		},
 		getInfo() {
-			axios.get('http://inovex.com/wp-json/vue/v1/header', {
+			axios.get('https://inovex.qazxswedc.site/wp-json/vue/v1/header', {
 				params:{
 					lang: this.$route.meta.language,
 				}

@@ -1,5 +1,5 @@
 <template>
-<div class="sec-page sec-about">
+<div class="sec-page sec-about" v-bind:class="{notScroll: notScroll}">
 	<Header></Header>
 	<div class="sec-page__wrap sec-about__wrap" v-if="showMain">
 		<div class="sec-about__content">
@@ -47,6 +47,7 @@ export default {
 		return{
 			showAnim: false,
 			showMain: false,
+			notScroll: true,
 			translateSlugs: Object,
 			pageInfo: Object,
 			about: Object,
@@ -65,9 +66,10 @@ export default {
 	methods: {
 		showPage() {
 			setTimeout(()=>this.showAnim = true, 1100);
+			setTimeout(()=>this.notScroll = false, 3000);
 		},
 		getInfo() {
-			axios.get('http://inovex.com/wp-json/vue/v1/about', {
+			axios.get('https://inovex.qazxswedc.site/wp-json/vue/v1/about', {
 				params:{
 					lang: this.$route.meta.language,
 				}
