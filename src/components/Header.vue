@@ -13,13 +13,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="block-header__menu menu-dropdown" v-bind:class="[{open: openMenu},{close: closeMenu}]">
+	<div class="block-header__menu menu-dropdown" v-if="showMain" v-bind:class="[{open: openMenu},{close: closeMenu}]">
 		<div class="menu-dropdown__content">
 			<ul class="menu-dropdown__links links-menu">
-				<li class="links-menu__el"><router-link @click="click" :to="{name: 'services'+'-'+this.$route.meta.language}" class="links-menu__link">Services</router-link></li>
-				<li class="links-menu__el"><router-link @click="click" :to="{name: 'clients'+'-'+this.$route.meta.language}" class="links-menu__link">Clients</router-link></li>
-				<li class="links-menu__el"><router-link @click="click" :to="{name: 'about'+'-'+this.$route.meta.language}" class="links-menu__link">About us</router-link></li>
-				<li class="links-menu__el"><router-link @click="click" :to="{name: 'Contacts'+'-'+this.$route.meta.language}" class="links-menu__link">Contact</router-link></li>
+				<li class="links-menu__el"><router-link @click="click" :to="{name: 'services'+'-'+this.$route.meta.language}" class="links-menu__link">{{ info.menu['services'] }}</router-link></li>
+				<li class="links-menu__el"><router-link @click="click" :to="{name: 'clients'+'-'+this.$route.meta.language}" class="links-menu__link">{{ info.menu.clients }}</router-link></li>
+				<li class="links-menu__el"><router-link @click="click" :to="{name: 'about'+'-'+this.$route.meta.language}" class="links-menu__link">{{ info.menu.about }}</router-link></li>
+				<li class="links-menu__el"><router-link @click="click" :to="{name: 'Contacts'+'-'+this.$route.meta.language}" class="links-menu__link">{{ info.menu.contact }}</router-link></li>
 			</ul>
 			<div class="menu-dropdown__bottom">
 				<div class="menu-dropdown__bottom-left">

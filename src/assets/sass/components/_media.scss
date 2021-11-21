@@ -289,7 +289,8 @@
 	}
 	.block-clients__el{
 		width: 33.33333333%;
-		margin-bottom: 15px;
+		padding: 0 30px;
+		margin-bottom: 30px;
 	}
 	.title_main{
 		font-size: 18px;
@@ -483,5 +484,11 @@
 	}
 	.sec-page__wrap{
 		padding-bottom: 120px;
+	}
+}
+
+@media screen and (max-width: 360px){
+	.block-clients__el{
+		padding: 0 15px;
 	}
 }

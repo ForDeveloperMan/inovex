@@ -2,7 +2,7 @@
 <div class="sec-page sec-human" v-bind:class="{notScroll: notScroll}">
 	<Header></Header>
 	<div class="sec-page__wrap sec-human__wrap" v-if="showMain">
-		<transition name="bounceUp" v-show="showAnim">
+		<transition name="fadeUp" v-show="showAnim">
 			<div class="sec-human__top center">
 				<h1 class="title title_main ttu sec-human__title">{{ human.post_title }}</h1>
 				<p class="sec-human__who">{{ human.who }}</p>
@@ -10,14 +10,14 @@
 		</transition>
 		<div class="sec-human__content">
 			<div class="block-human">
-				<transition name="bounceUp" v-show="showAnim" style="animation-delay: 0.2s">
+				<transition name="fadeUp" v-show="showAnim" style="animation-delay: 0.2s">
 					<div class="block-human__img"><img v-if="human.foto" :src="human.foto" alt="" class="block-human__img-img"></div>
 				</transition>
 				<div class="block-human__right">
-					<transition name="bounceUp" v-show="showAnim" style="animation-delay: 0.4s">
+					<transition name="fadeUp" v-show="showAnim" style="animation-delay: 0.4s">
 						<div class="block-human__text" v-html="human.tekst"></div>
 					</transition>
-					<transition name="bounceUp" v-show="showAnim" style="animation-delay: 0.6s">
+					<transition name="fadeUp" v-show="showAnim" style="animation-delay: 1s">
 						<router-link @click="click" :to="{name: 'Contacts'+'-'+this.$route.meta.language}" class="btn sec-human__btn">CONTACT US</router-link>
 					</transition>
 				</div>

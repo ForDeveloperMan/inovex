@@ -3,17 +3,17 @@
 	<Header></Header>
 	<div class="sec-page__wrap sec-whoweare__wrap" v-if="showMain">
 		<div class="sec-whoweare__top center">
-			<transition name="bounceUp" v-show="showAnim">
+			<transition name="fadeUp" v-show="showAnim">
 				<h1 class="title title_sec ttu title_dec sec-whoweare__title">{{ pageInfo.title }}</h1>
 			</transition>
-			<transition name="bounceUp" v-show="showAnim" style="animation-delay: 0.2s">
+			<transition name="fadeUp" v-show="showAnim" style="animation-delay: 0.2s">
 				<p class="text-sec sec-whoweare__text" v-html="pageInfo.text"></p>
 			</transition>
 		</div>
 		<div class="sec-whoweare__content">
 			<div class="block-whoweare">
 				<template v-for="(item, ind) in people" v-bind:key="ind">
-					<transition name="bounceUp" v-show="showAnim" :style="'animation-delay:'+ ( 0.2+ind * 0.1 + 0.1 ) +'s'">
+					<transition name="fadeUp" v-show="showAnim" :style="'animation-delay:'+ ( 0.2 + ind * 0.2 ) +'s'">
 						<div class="block-whoweare__el">
 							<router-link :to="{name: 'Human-'+this.$route.meta.language, params: {human: item.post_name}}" class="whoweare-el">
 								<div class="whoweare-el__img"><img v-if="item.img" :src="item.img" alt="" class="whoweare-el__img-img"></div>

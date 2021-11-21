@@ -75,7 +75,7 @@ export default {
 			var particles, particle, count = 0;
 
 			var mouseX = 85,
-			mouseY = -342;
+			mouseY = 100;
 
 			var windowHalfX = window.innerWidth / 2;
 			var windowHalfY = window.innerHeight / 2;
@@ -97,7 +97,7 @@ export default {
 			var PI2 = Math.PI * 2;
 			var material = new THREE.ParticleCanvasMaterial({
 
-			color: 0xFFFFFF,
+			color: 0x515151,
 			program: function(context) {
 
 			context.beginPath();
@@ -198,7 +198,7 @@ export default {
 			function render() {
 
 	            camera.position.x += ( mouseX - camera.position.x ) * .05;
-	            camera.position.y += ( - mouseY - camera.position.y ) * .05;
+	            camera.position.y = 200;
 	            camera.lookAt( scene.position );
 
 	            var i = 0;
@@ -238,6 +238,8 @@ export default {
 				let timeSpan;
 				setTimeout(()=>{ timeSpan = setInterval(timeSpanFunc, 10) }, interval);
 				let span = el.querySelector('span');
+				span.style.right = 'auto';
+				span.style.left = 0;
 				function timeSpanFunc() {
 					widthSpan += 5;
 					span.style.width = widthSpan+'%';
@@ -254,21 +256,21 @@ export default {
 			let preload = document.querySelector('.loader');
 			let elements = document.getElementsByClassName('loader__el');
 			document.querySelector('.loader__preload').style.opacity = '0';
-			let l = -1;
-			for( var i=elements.length; i>0; i-- ){
-				l++;
-				let el = elements[l];
+			for( var i=0; i<elements.length; i++ ){
+				let el = elements[i];
 				let widthSpan = 100;
 				let interval = (i*50);
 				let timeSpan;
 				setTimeout(()=>{ timeSpan = setInterval(timeSpanFunc, 10) }, interval);
 				let span = el.querySelector('span');
+				span.style.left = 'auto';
+				span.style.right = 0;
 				function timeSpanFunc() {
 					widthSpan -= 5;
 					span.style.width = widthSpan+'%';
 					if ( widthSpan <= 0 ) {
 						clearTimeout(timeSpan);
-						if ( el === elements[0] ) {
+						if ( el === elements[elements.length-1] ) {
 							preload.style.display = 'none';
 						}
 					}

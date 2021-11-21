@@ -12,7 +12,7 @@
 			<div class="block-services">
 				<template v-for="(item,  ind) in services" v-bind:key="ind">
 					<transition name="fade" v-show="showAnim">
-						<div class="block-services__el" :style="'animation-delay:'+ ( 0.2+ind * 0.1 + 0.1 ) +'s'">
+						<div class="block-services__el" :style="'animation-delay:'+ ( 0.2+ind * 0.15 ) +'s'">
 							<router-link :to="{name: 'service-'+this.$route.meta.language, params: {service: item.post_name}}" class="services-el">
 								<img :src="item.icon" alt="" class="services-el__icon">
 								<div class="services-el__text">{{ item.post_title }}</div>

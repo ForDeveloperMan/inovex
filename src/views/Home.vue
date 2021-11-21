@@ -3,7 +3,7 @@
 	<Header></Header>
 	<div class="sec-home__wrap">
 		<div class="sec-home__content" v-if="showMain">
-			<transition name="bounceUp" v-show="showAnim">
+			<transition name="fadeUp" v-show="showAnim">
 				<img :src="home.logo" alt="" class="sec-home__logo">
 			</transition>
 		</div>

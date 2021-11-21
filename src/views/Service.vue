@@ -3,18 +3,18 @@
 	<Header></Header>
 	<div class="sec-page__wrap sec-service__wrap" v-if="showMain">
 		<div class="sec-service__content">
-			<transition name="bounceDown" v-show="showAnim" style="animation-delay: 0.6s;">
+			<transition name="fadeDown" v-show="showAnim" style="animation-delay: 0.6s;">
 				<h1 class="title title_dec title_main sec-service__title">{{ service.post_title }}</h1>
 			</transition>
-			<transition name="bounceDown" v-show="showAnim" style="animation-delay: 0.4s;">
+			<transition name="fadeDown" v-show="showAnim" style="animation-delay: 0.4s;">
 				<p class="text-info sec-service__text">{{ service.text }}</p>
 			</transition>
-			<transition name="bounceDown" v-show="showAnim" style="animation-delay: 0.2s;">
+			<transition name="fadeDown" v-show="showAnim" style="animation-delay: 0.2s;">
 				<div class="sec-service__links links-service" v-if="links">
 					<router-link :to="{name: 'serviceMedia-'+this.$route.meta.language, params: {media: el.link.post_name}}" v-for="(el, ind) in links" v-bind:key="ind" class="links-service__el">{{ el.link.post_title }}</router-link>
 				</div>
 			</transition>
-			<transition name="bounceDown">
+			<transition name="fadeDown">
 				<div v-show="showAnim">
 					<router-link @click="click" :to="{name: 'Contacts'+'-'+this.$route.meta.language}" class="btn sec-service__btn">CONTACT US</router-link>
 				</div>

@@ -2,7 +2,7 @@
 <div class="sec-page sec-contacts">
 	<Header></Header>
 	<div class="sec-page__wrap sec-contacts__wrap" v-if="showMain">
-		<transition name="bounceDown" v-show="showAnim" style="animation-delay: 0.6s">
+		<transition name="fadeDown" v-show="showAnim" style="animation-delay: 0.6s">
 			<div class="sec-contacts__top">
 				<h1 class="title title_big sec-contacts__title title title_dec title_dec-left">{{ pageInfo.title }}</h1>
 			</div>
@@ -10,7 +10,7 @@
 		<div class="sec-contacts__content">
 			<div class="sec-contacts__left">
 				<div class="block-contact">
-					<transition name="bounceDown" v-show="showAnim" style="animation-delay: 0.4s">
+					<transition name="fadeDown" v-show="showAnim" style="animation-delay: 0.4s">
 						<div class="block-contact__el">
 							<div class="contact-el">
 								<div class="contact-el__title">{{ pageInfo.visit_us.title }}</div>
@@ -18,7 +18,7 @@
 							</div>
 						</div>
 					</transition>
-					<transition name="bounceDown" v-show="showAnim" style="animation-delay: 0.2s">
+					<transition name="fadeDown" v-show="showAnim" style="animation-delay: 0.2s">
 						<div class="block-contact__el">
 							<div class="contact-el">
 								<div class="contact-el__title">{{ pageInfo.email.title }}</div>
@@ -26,7 +26,7 @@
 							</div>
 						</div>
 					</transition>
-					<transition name="bounceDown" v-show="showAnim">
+					<transition name="fadeDown" v-show="showAnim">
 						<div class="block-contact__el">
 							<div class="contact-el">
 								<div class="contact-el__title">{{ pageInfo.call.title }}</div>
@@ -37,7 +37,7 @@
 				</div>
 			</div>
 			<div class="sec-contacts__right">
-				<transition name="bounceDown" v-show="showAnim && !thanksForm" style="animation-delay: 0.8s">
+				<transition name="fadeDown" v-show="showAnim && !thanksForm" style="animation-delay: 0.8s">
 					<div class="block-form">
 						<input type="text" class="form-el inp block-form__el" placeholder="Name" @focus="inpCheck" @blur="inpCheck" @input="inpCheck" name="name">
 						<input type="text" class="form-el inp block-form__el" placeholder="E-mail" @focus="inpCheck" @blur="inpCheck" @input="inpCheck" name="mail">
