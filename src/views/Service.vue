@@ -7,7 +7,7 @@
 				<h1 class="title title_dec title_main sec-service__title">{{ service.post_title }}</h1>
 			</transition>
 			<transition name="fadeDown" v-show="showAnim" style="animation-delay: 0.4s;">
-				<p class="text-info sec-service__text">{{ service.text }}</p>
+				<div class="text-info sec-service__text" v-html="service.text"></div>
 			</transition>
 			<transition name="fadeDown" v-show="showAnim" style="animation-delay: 0.2s;">
 				<div class="sec-service__links links-service" v-if="links">
@@ -16,11 +16,11 @@
 			</transition>
 			<transition name="fadeDown">
 				<div v-show="showAnim">
-					<router-link @click="click" :to="{name: 'Contacts'+'-'+this.$route.meta.language}" class="btn sec-service__btn">CONTACT US</router-link>
+					<router-link @click="click" :to="{name: 'Contacts'+'-'+this.$route.meta.language}" class="btn sec-service__btn">{{ pageInfo.contact }}</router-link>
 				</div>
 			</transition>
 		</div>
-	<router-link :to="{name: 'services'+'-'+this.$route.meta.language}" class="sec-page__back">back</router-link>
+	<router-link :to="{name: 'services'+'-'+this.$route.meta.language}" class="sec-page__back">{{ pageInfo.back }}</router-link>
 	</div>
 </div>
 </template>

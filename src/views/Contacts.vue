@@ -36,14 +36,19 @@
 					</transition>
 				</div>
 			</div>
-			<div class="sec-contacts__right">
-				<transition name="fadeDown" v-show="showAnim && !thanksForm" style="animation-delay: 0.8s">
-					<div class="block-form">
-						<input type="text" class="form-el inp block-form__el" placeholder="Name" @focus="inpCheck" @blur="inpCheck" @input="inpCheck" name="name">
-						<input type="text" class="form-el inp block-form__el" placeholder="E-mail" @focus="inpCheck" @blur="inpCheck" @input="inpCheck" name="mail">
-						<input type="text" class="form-el inp block-form__el" placeholder="Message" @focus="inpCheck" @blur="inpCheck" @input="inpCheck" name="message">
-						<a href="#" class="block-form__btn" @click.prevent="sendForm">Send message</a>
-					</div>
+			<div class="sec-contacts__right" v-bind:class="{center: thanks}">
+				<div v-if="!thanks">
+					<transition name="fadeDown" v-show="showAnim && !thanksForm" style="animation-delay: 0.8s">
+						<div class="block-form">
+							<input type="text" class="form-el inp block-form__el" :placeholder="pageInfo.fields.name" @focus="inpCheck" @blur="inpCheck" @input="inpCheck" name="name">
+							<input type="text" class="form-el inp block-form__el" :placeholder="pageInfo.fields.mail" @focus="inpCheck" @blur="inpCheck" @input="inpCheck" name="mail">
+							<input type="text" class="form-el inp block-form__el" :placeholder="pageInfo.fields.message" @focus="inpCheck" @blur="inpCheck" @input="inpCheck" name="message">
+							<a href="#" class="block-form__btn" @click.prevent="sendForm">{{ pageInfo.fields.send }}</a>
+						</div>
+					</transition>
+				</div>
+				<transition name="fadeDown">
+					<div class="form-thanks" v-if="thanks" v-html="pageInfo.fields.after"></div>
 				</transition>
 			</div>
 		</div>
@@ -64,6 +69,7 @@ export default {
 			pageInfo: Object,
 			thanksForm: false,
 			formError: false,
+			thanks: false,
 		};
 	},
 	components: {
@@ -105,7 +111,7 @@ export default {
 			
 			axios.post('https://inovex.qazxswedc.site/wp-json/contact-form-7/v1/contact-forms/205/feedback', formData).then(response => {
 				if ( response.data.status === 'mail_sent' ) {
-					this.thanksForm = true;
+					this.thanks = true;
 				}
 				if ( response.data.status === 'validation_failed' ) {
 					this.formError = true;

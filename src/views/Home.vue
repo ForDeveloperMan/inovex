@@ -1,7 +1,7 @@
 <template>
 <div class="sec-home">
 	<Header></Header>
-	<div class="sec-home__wrap">
+	<div class="sec-home__wrap" @click="openMenu" @wheel="wheel">
 		<div class="sec-home__content" v-if="showMain">
 			<transition name="fadeUp" v-show="showAnim">
 				<img :src="home.logo" alt="" class="sec-home__logo">
@@ -21,6 +21,7 @@ export default {
 			showAnim: false,
 			showMain: false,
 			home: Array,
+			fixWheel: 0,
 		};
 	},
 	components: {
@@ -37,6 +38,15 @@ export default {
 		});
 	},
 	methods: {
+		wheel() {
+			// if ( this.fixWheel === 0 ) {
+			// }
+			// this.fixWheel++;
+			this.openMenu();
+		},
+		openMenu(val) {
+			this.$store.dispatch('openMenu');
+		},
 		showPage() {
 			setTimeout(()=>this.showAnim = true, 1600);
 		},

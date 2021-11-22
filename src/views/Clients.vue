@@ -17,7 +17,7 @@
 				</template>
 			</div>
 			<div class="center">
-				<router-link @click="click" :to="{name: 'Contacts'+'-'+this.$route.meta.language}" class="btn sec-clients__btn">CONTACT US</router-link>
+				<router-link @click="click" :to="{name: 'Contacts'+'-'+this.$route.meta.language}" class="btn sec-clients__btn">{{ pageInfo.contact }}</router-link>
 			</div>
 		</div>
 	</div>

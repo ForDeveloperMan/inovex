@@ -302,6 +302,14 @@ $heightHeader: 134px;
 	&__btn{
 		margin-top: 65px;
 	}
+	&__text{
+		p{
+			margin-bottom: 10px;
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
 }
 
 .overflow-y{
@@ -465,7 +473,7 @@ $heightHeader: 134px;
 	&__content{
 		display: flex;
 		justify-content: space-between;
-		align-items: flex-start;
+		// align-items: flex-start;
 	}
 	&__left{
 		max-width: 500px;
@@ -475,5 +483,10 @@ $heightHeader: 134px;
 	&__right{
 		max-width: 407px;
 		width: 100%;
+		&.center{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 	}
 }

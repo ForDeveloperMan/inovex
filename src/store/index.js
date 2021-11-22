@@ -5,6 +5,7 @@ export default({
 			translateSlugs: false,
 			bgHome: false,
 			isHome: false,
+			openMenu: false,
 		}
 	},
 	mutations: {
@@ -20,8 +21,17 @@ export default({
 		isHomeF(state, val) {
 			state.isHome = val;
 		},
+		changeMenu(state, val) {
+			state.openMenu = val;
+		},
 	},
 	actions: {
+		openMenu(context) {
+			context.commit('changeMenu', true);
+		},
+		hideMenu(context) {
+			context.commit('changeMenu', false);
+		},
 	},
 	modules: {
 	}

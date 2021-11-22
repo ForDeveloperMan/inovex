@@ -18,12 +18,12 @@
 						<div class="block-human__text" v-html="human.tekst"></div>
 					</transition>
 					<transition name="fadeUp" v-show="showAnim" style="animation-delay: 1s">
-						<router-link @click="click" :to="{name: 'Contacts'+'-'+this.$route.meta.language}" class="btn sec-human__btn">CONTACT US</router-link>
+						<router-link @click="click" :to="{name: 'Contacts'+'-'+this.$route.meta.language}" class="btn sec-human__btn">{{ pageInfo.contact }}</router-link>
 					</transition>
 				</div>
 			</div>
 		</div>
-	<router-link :to="{name: 'WhoWeAre'+'-'+this.$route.meta.language}" class="sec-page__back">back</router-link>
+	<router-link :to="{name: 'WhoWeAre'+'-'+this.$route.meta.language}" class="sec-page__back">{{ pageInfo.back }}</router-link>
 	</div>
 </div>
 </template>

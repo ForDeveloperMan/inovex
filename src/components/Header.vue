@@ -63,7 +63,12 @@ export default {
 			if ( this.$store.state.translateSlugs ) {
 				this.getLanguages();
 			}
-		}
+		},
+		'$store.state.openMenu': function() {
+			if ( this.$store.state.openMenu ) {
+				this.click();
+			}
+		},
 	},
 	created(){
 		this.getInfo();
@@ -107,11 +112,14 @@ export default {
 			this.openMenuFunc();
 		},
 		openMenuFunc() {
+			console.log(this.openMenu);
 			if ( !this.openMenu ) {
 				this.openMenu = true;
+				// this.$store.dispatch('openMenu');
 			}else{
 				this.openMenu = false;
 				this.closeMenu = true;
+				this.$store.dispatch('hideMenu');
 				setTimeout(()=>this.closeMenu = false, 1000);
 			}
 		},

@@ -31,7 +31,7 @@
 		</div>
 		<transition name="fadeUp" v-show="showAnim" style="animation-delay: 1.2s">
 			<div class="center">
-				<router-link :to="{name: 'WhoWeAre'+'-'+this.$route.meta.language}" class="btn sec-about__btn">Who we are?</router-link>
+				<router-link :to="{name: 'WhoWeAre'+'-'+this.$route.meta.language}" class="btn sec-about__btn">{{ pageInfo.who }}</router-link>
 			</div>
 		</transition>
 	</div>
