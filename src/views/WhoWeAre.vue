@@ -61,7 +61,7 @@ export default {
 			setTimeout(()=>this.notScroll = false, 3000);
 		},
 		getInfo() {
-			axios.get('https://inovex.qazxswedc.site/wp-json/vue/v1/whoweare', {
+			axios.get('https://www.innovex.pro/wp-json/vue/v1/whoweare', {
 				params:{
 					lang: this.$route.meta.language,
 				}

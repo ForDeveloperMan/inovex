@@ -124,7 +124,7 @@ export default {
 			}
 		},
 		getInfo() {
-			axios.get('https://inovex.qazxswedc.site/wp-json/vue/v1/header', {
+			axios.get('https://www.innovex.pro/wp-json/vue/v1/header', {
 				params:{
 					lang: this.$route.meta.language,
 				}

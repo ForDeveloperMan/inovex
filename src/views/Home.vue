@@ -51,7 +51,7 @@ export default {
 			setTimeout(()=>this.showAnim = true, 1600);
 		},
 		getInfo() {
-			axios.get('https://inovex.qazxswedc.site/wp-json/vue/v1/home', {
+			axios.get('https://www.innovex.pro/wp-json/vue/v1/home', {
 				params:{
 					lang: this.$route.meta.language,
 				}
